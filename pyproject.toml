@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ansa-mcp-sum"
+# Version lives in ansa_mcp_sum/__init__.py only. Two independent declarations
+# drifted once already (both stuck at the 0.1.0 fork baseline), so the number is
+# now read from the module instead of being typed twice.
+dynamic = ["version"]
+description = "Combined ANSA MCP bridge: file-IPC (GUI) transport + the 49 tools from tcp-bridge."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  # The upper bound is deliberate. The bridge is exercised against mcp 1.29.1;
+  # mcp 2.x reworks the FastMCP tool surface, and a plain `pip install -U`
+  # would silently install a version the transport was never tested on.
+  "mcp>=1.0,<2",
+]
+
+[project.scripts]
+ansa-mcp-sum-server = "ansa_mcp_sum.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# Ship the bundled ANSA API index so a wheel/editable install of ansa-mcp-sum
+# is self-contained (the ansa_api_doc_* tools do not depend on ansa_tools).
+[tool.setuptools.package-data]
+ansa_mcp_sum = ["ansa_api_index.json"]
+
+[tool.setuptools.dynamic]
+version = {attr = "ansa_mcp_sum.__version__"}
