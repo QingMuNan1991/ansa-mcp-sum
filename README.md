@@ -22,7 +22,6 @@
 | 项目 | 传输层 | 能看到 ANSA GUI | 工具数 |
 |---|---|---|---|
 | `ansa-tcp-bridge` | TCP / IAP（`-b` 批处理） | ❌ | 49 |
-| `ansa-mcp` | 文件 IPC 命令队列（GUI） | ✅ | ~20（偏面片操作） |
 | **`ansa-mcp-sum`** | **文件 IPC 命令队列（GUI）** | ✅ | **78** |
 
 一句话：**用 ansa-mcp 的传输层，把 tcp-bridge 的工具全部跑在 GUI 模式下**。
