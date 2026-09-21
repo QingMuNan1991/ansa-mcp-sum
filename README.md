@@ -1,3 +1,7 @@
+<img width="430" height="430" alt="微信图片_20260912110609_11_156" src="https://github.com/user-attachments/assets/00f18553-dd01-40e8-8e47-cf72ca992269" />
+
+欢迎关注“解忧CAE”公众号，共同交流ANSA/META仿真技巧
+
 # ansa-mcp-sum
 
 **在可见的 ANSA GUI 上，用 MCP 驱动 78 个具名工具、5 个资源（当前 v1.0.7）。**
